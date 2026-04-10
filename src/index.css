@@ -4,6 +4,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* Deep Indigo + Burnt Orange
+	•	Indigo: #1F2A44
+	•	Orange: #E07A3F */
+:root {
+  --primaryColor: #1f2a44;
+  --secondaryColor: #e07a3f;
+}
+
 h1,
 h2,
 h3 {
@@ -16,4 +24,26 @@ h3 {
   font-family: "Work Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+.bgp {
+  background-color: var(--primaryColor);
+  color: whitesmoke;
+}
+
+.bgs {
+  background-color: var(--secondaryColor);
+  color: whitesmoke;
+}
+
+.pText {
+  color: var(--primaryColor);
+}
+.sText {
+  color: var(--secondaryColor);
+}
+
+section {
+  width: 95%;
+  margin: 0 auto;
 }
