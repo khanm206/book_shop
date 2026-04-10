@@ -4,7 +4,9 @@ function App() {
   return (
     <div>
       <h1>Hello World</h1>
-      <h5>Hello World</h5>
+      <h2>Hello World</h2>
+      <h3>Hello World</h3>
+      <p>Hello world</p>
     </div>
   );
 }
