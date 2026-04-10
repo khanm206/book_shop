@@ -45,5 +45,17 @@ h3 {
 
 section {
   width: 95%;
-  margin: 0 auto;
+  margin: 40px auto;
+}
+
+/* small devices */
+@media (max-width: 640px) {
+  section {
+    margin: 10px auto;
+  }
+}
+
+.active {
+  border: 1px solid var(--secondaryColor);
+  color: var(--secondaryColor);
 }
