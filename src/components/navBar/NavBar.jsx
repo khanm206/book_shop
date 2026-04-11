@@ -8,9 +8,7 @@ const NavBar = () => {
       <li>
         <NavLink
           to={"/"}
-          className={({ isActive }) =>
-            isActive ? "active lg:animate-bounce" : ""
-          }
+          className={({ isActive }) => (isActive ? "active" : "")}
         >
           Home
         </NavLink>
@@ -18,9 +16,7 @@ const NavBar = () => {
       <li>
         <NavLink
           to={"/listed_books"}
-          className={({ isActive }) =>
-            isActive ? "active lg:animate-bounce" : ""
-          }
+          className={({ isActive }) => (isActive ? "active" : "")}
         >
           Listed Books
         </NavLink>
@@ -28,9 +24,7 @@ const NavBar = () => {
       <li>
         <NavLink
           to={"/pages_to_read"}
-          className={({ isActive }) =>
-            isActive ? "active lg:animate-bounce" : ""
-          }
+          className={({ isActive }) => (isActive ? "active" : "")}
         >
           Pages to Read
         </NavLink>
@@ -38,7 +32,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="bg-base-100">
+    <div className="bg-base-100 sticky top-0 z-50">
       <div className="navbar shadow-sm px-[2%]">
         <div className="navbar-start">
           <div className="dropdown">
@@ -60,7 +54,7 @@ const NavBar = () => {
               </svg>
             </div>
             <ul
-              tabIndex="-1"
+              tabIndex={-1}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
@@ -75,9 +69,9 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-6">{links}</ul>
         </div>
-        <div className="navbar-end">
-          <button className="btn bgp">Sign In</button>
-          <button className="btn bgs hidden lg:flex">Sign Up</button>
+        <div className="navbar-end gap-4">
+          <button className="btn bgp rounded-lg">Sign In</button>
+          <button className="btn bgs hidden lg:flex rounded-lg">Sign Up</button>
         </div>
       </div>
     </div>
