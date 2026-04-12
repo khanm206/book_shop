@@ -1,7 +1,9 @@
 import { ArrowBigLeft } from "lucide-react";
 import React from "react";
+import { useContext } from "react";
 import { use } from "react";
 import { Link, useParams } from "react-router";
+import { BookContext } from "../../context/BookContext";
 
 const BookDetailsCard = ({ booksPromise }) => {
   const booksData = use(booksPromise);
@@ -20,6 +22,9 @@ const BookDetailsCard = ({ booksPromise }) => {
     publisher,
     yearOfPublishing,
   } = selectedBook;
+
+  const { handleMarkedAsRead, handleWishList } = useContext(BookContext);
+
   return (
     <section>
       <div className="md:grid md:grid-cols-2 gap-6 items-center lg:max-h-dvh">
@@ -82,10 +87,16 @@ const BookDetailsCard = ({ booksPromise }) => {
             >
               <ArrowBigLeft /> Back
             </Link>
-            <button className="btn bgp rounded-lg transition hover:scale-110">
+            <button
+              onClick={() => handleMarkedAsRead(selectedBook)}
+              className="btn bgp rounded-lg transition hover:scale-110"
+            >
               Mark as Read
             </button>
-            <button className="btn bgs rounded-lg transition hover:scale-110">
+            <button
+              onClick={() => handleWishList(selectedBook)}
+              className="btn bgs rounded-lg transition hover:scale-110"
+            >
               Add to Wishlist
             </button>
           </div>
