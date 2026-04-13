@@ -42,7 +42,4 @@ It demonstrates a simple e-commerce UI with smooth animations, data visualizatio
 - Interactive charts for visual insights
 - Clean and minimal layout
 
----
-
-## 📁 Project Structure
    
