@@ -17,7 +17,7 @@ const ReadList = () => {
   return (
     <div className="space-y-6">
       {readBookList.map((book, index) => (
-        <BookCard key={index} book={book}></BookCard>
+        <BookCard key={index} book={book} index={index}></BookCard>
       ))}
     </div>
   );

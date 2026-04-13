@@ -2,9 +2,10 @@ import { BookOpenCheck } from "lucide-react";
 import { NotebookText } from "lucide-react";
 import { CalendarDays } from "lucide-react";
 import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router";
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, index }) => {
   const {
     bookId,
     bookName,
@@ -19,7 +20,17 @@ const BookCard = ({ book }) => {
   } = book;
 
   return (
-    <div className=" flex gap-4 shadow-sm items-stretch rounded-xl">
+    <motion.div
+      className=" flex gap-4 shadow-sm items-stretch rounded-xl transition hover:scale-104"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.1,
+        ease: "easeOut",
+      }}
+    >
       <div className="p-6 bg-base-200 hidden md:flex items-stretch rounded-xl">
         <img className="w-38" src={image} />
       </div>
@@ -70,7 +81,7 @@ const BookCard = ({ book }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { use } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { BookContext } from "../../context/BookContext";
+import { motion } from "framer-motion";
 
 const BookDetailsCard = ({ booksPromise }) => {
   const booksData = use(booksPromise);
@@ -28,7 +29,16 @@ const BookDetailsCard = ({ booksPromise }) => {
   const { handleMarkedAsRead, handleWishList } = useContext(BookContext);
 
   return (
-    <section className="my-10 mx-auto">
+    <motion.section
+      className="my-10 mx-auto"
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+      }}
+    >
       <div className="lg:grid lg:grid-cols-2 gap-6 items-center lg:max-h-dvh">
         <div className=" p-20 bg-base-200 hidden lg:flex justify-center items-center">
           <img
@@ -104,7 +114,7 @@ const BookDetailsCard = ({ booksPromise }) => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
