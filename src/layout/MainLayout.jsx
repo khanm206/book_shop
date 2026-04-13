@@ -2,28 +2,15 @@ import React from "react";
 import NavBar from "../components/navBar/NavBar";
 import { Outlet } from "react-router";
 import Footer from "../components/footer/Footer";
-import { ToastContainer } from "react-toastify";
-import { Bounce } from "react-toastify";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <NavBar />
-      <Outlet />
+      <main className="flex-1 flex items-center justify-center">
+        <Outlet />
+      </main>
       <Footer />
-      <ToastContainer
-        position="bottom-center"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Bounce}
-      />
     </div>
   );
 };

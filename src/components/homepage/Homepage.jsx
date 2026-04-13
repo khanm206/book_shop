@@ -4,7 +4,7 @@ import AllBooks from "./loadBook/AllBooks";
 
 const Homepage = () => {
   return (
-    <section>
+    <section className="mt-10 mb-40 mx-auto">
       <Banner />
       <AllBooks />
     </section>

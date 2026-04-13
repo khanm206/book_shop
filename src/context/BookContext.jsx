@@ -30,12 +30,20 @@ const BookProvider = ({ children }) => {
     }
   };
   const handleMarkedAsRead = (currentBook) => {
-    const isExist = readBookList.find(
+    const isExistReadList = readBookList.find(
       (book) => book.bookId === currentBook.bookId,
     );
-    if (isExist) {
+    const isExistWishList = wishBookList.find(
+      (book) => book.bookId === currentBook.bookId,
+    );
+    if (isExistReadList) {
       toast.error(
         `${currentBook.bookName} is Already Added to The Reading List!`,
+      );
+      return;
+    } else if (isExistWishList) {
+      toast.warning(
+        `${currentBook.bookName} is Already Exist in The Wishlist!`,
       );
       return;
     } else {

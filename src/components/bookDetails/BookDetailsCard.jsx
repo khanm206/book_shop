@@ -2,7 +2,7 @@ import { ArrowBigLeft } from "lucide-react";
 import React from "react";
 import { useContext } from "react";
 import { use } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { BookContext } from "../../context/BookContext";
 
 const BookDetailsCard = ({ booksPromise }) => {
@@ -23,12 +23,14 @@ const BookDetailsCard = ({ booksPromise }) => {
     yearOfPublishing,
   } = selectedBook;
 
+  const navigate = useNavigate();
+
   const { handleMarkedAsRead, handleWishList } = useContext(BookContext);
 
   return (
-    <section>
-      <div className="md:grid md:grid-cols-2 gap-6 items-center lg:max-h-dvh">
-        <div className=" p-20 bg-base-200 hidden md:flex justify-center items-center">
+    <section className="my-10 mx-auto">
+      <div className="lg:grid lg:grid-cols-2 gap-6 items-center lg:max-h-dvh">
+        <div className=" p-20 bg-base-200 hidden lg:flex justify-center items-center">
           <img
             src={image}
             alt="Book Cover"
@@ -80,13 +82,13 @@ const BookDetailsCard = ({ booksPromise }) => {
               <td className="text-black text-base font-semibold">{rating}/5</td>
             </tr>
           </table>
-          <div className="flex gap-4">
-            <Link
-              to={"/"}
+          <div className="flex flex-wrap gap-4">
+            <button
+              onClick={() => navigate(-1)}
               className="btn bgs rounded-lg transition hover:scale-110"
             >
               <ArrowBigLeft /> Back
-            </Link>
+            </button>
             <button
               onClick={() => handleMarkedAsRead(selectedBook)}
               className="btn bgp rounded-lg transition hover:scale-110"
